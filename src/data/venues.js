@@ -8,7 +8,7 @@ export const BUDGET_OPTIONS = [0, 500000, 1000000, 1500000, 2000000]; // 0 = 제
 
 // ratio: 종일 대관료 대비 비율 (종일 대관료 = 평일 basePrice / 주말 weekendPrice)
 export const TIME_SLOTS = [
-    { id: 'day', name: '낮 타임', label: '14L00 ~ 18:00', ratio: 1 / 3 },
+    { id: 'day', name: '낮 타임', label: '14:00 ~ 18:00', ratio: 1 / 3 },
     { id: 'night', name: '저녁 타임', label: '18:00 ~ 22:00', ratio: 2 / 3 },
     { id: 'full', name: '종일', label: '14:00 ~ 22:00', ratio: 1 },
 ];
