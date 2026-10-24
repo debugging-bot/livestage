@@ -1,3 +1,8 @@
+import VenueCard from "../components/VenueCard";
 export default function SearchResults() {
-  return <div className="container">검색 결과 화면</div>;
+  return (
+    <div className="container page">
+      <VenueCard />
+    </div>
+  );
 }
