@@ -52,7 +52,7 @@ export function ReservationProvider({ children }) {
     useEffect(() => save(FAV_KEY, favorites), [favorites]);
 
     const addReservation = (data) => {
-        const id = `R-${crypto.randomUUID()}`;
+        const id = `R-${Date.now().toString().slice(-6)}`;
         setReservations((prev) => [{ ...data, id, status: '예약 완료' }, ...prev]);
         return id;
     };
