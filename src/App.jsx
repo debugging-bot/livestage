@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-//import { ReservationProvider } from './context/ReservationContext';
 import Header from './components/Header';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
@@ -8,6 +7,7 @@ import MapSearch from './pages/MapSearch';
 import VenueDetail from './pages/VenueDetail';
 import Booking from './pages/Booking';
 import MyPage from './pages/MyPage';
+import { ReservationProvider } from './context/ReservationContext';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -18,6 +18,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <HashRouter>
+      <ReservationProvider>
         <ScrollToTop />
         <Header />
         <main>
@@ -32,6 +33,7 @@ export default function App() {
           </Routes>
         </main>
         <footer className="footer">© 2026 LiveStage · 밴드를 위한 공연장 예약 플랫폼 (수업 프로젝트용 더미 데이터)</footer>
+      </ReservationProvider>
     </HashRouter>
   );
 }
