@@ -23,7 +23,7 @@ export default function MyPage() {
 
   const isUpcoming = (reservation) => 
     reservation.date > todayStr() &&
-    reservation.status !== '취소' &&
+    reservation.status !== '예약 취소' &&
     reservation.status !== '이용 완료';
   const sorted = [...reservations].sort((a, b) =>
     b.date.localeCompare(a.date));
