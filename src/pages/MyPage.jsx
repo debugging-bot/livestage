@@ -17,7 +17,7 @@ const STATUS_CLASS = { '예약 완료': 'green', '예약 대기': 'orange', '이
 export default function MyPage() {
   const navigate = useNavigate();
   const { reservations, favorites, cancelReservation } = useReservations();
-  const [menu, setMenu] = useState('reservations'); // 여기 이해 안 됨. -> 아 그냥 useState 인가?
+  const [menu, setMenu] = useState('reservations');
   const [tab, setTab] = useState('all');
   const [cancelId, setCancelId] = useState('');
 
