@@ -52,7 +52,7 @@ export function ReservationProvider({ children }) {
     useEffect(() => save(FAV_KEY, favorites), [favorites]);
 
     const addReservation = (data) => {
-        const id = `R-${crypto.randomUUID()}`;
+        const id = `R-${Date.now().toString().slice(-6)}`;
         setReservations((prev) => [{ ...data, id, status: '예약 완료' }, ...prev]);
         return id;
     };
@@ -60,7 +60,7 @@ export function ReservationProvider({ children }) {
     const cancelReservation = (id) => 
         setReservations((prev) => 
             prev.map((removeObj) => 
-                removeObj.id === id ? { ...removeObj, status: '취소' } : removeObj));
+                removeObj.id === id ? { ...removeObj, status: '예약 취소' } : removeObj));
 
     const toggleFavorite = (id) =>
         setFavorites((prev) => 
