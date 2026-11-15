@@ -5,6 +5,7 @@ import {
   useParams,
   useSearchParams,
 } from "react-router-dom";
+import Calendar from "../components/Calendar";
 import Stepper from "../components/Stepper";
 import VenueImage from "../components/VenueImage";
 import { TIME_SLOTS, getVenue } from "../data/venues";
@@ -176,11 +177,10 @@ export default function Booking() {
 
           <div className="panel">
             <h3>날짜 선택</h3>
-            {/* 추후 아래 input을 달력으로 바꿔야합니다. */}
-            <input
-              type="date"
+            <Calendar
               value={date}
-              onChange={(e) => pickDate(e.target.value)}
+              onSelect={pickDate}
+              statusOf={(d) => dayStatus(venue.id, d, reservations)}
             />
           </div>
 
