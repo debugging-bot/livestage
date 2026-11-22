@@ -21,17 +21,20 @@ export default function MyPage() {
   const [tab, setTab] = useState('all');
   const [cancelId, setCancelId] = useState('');
 
-  const isUpcoming = (reservation) => 
+  const isUpcoming = (reservation) =>
     reservation.date > todayStr() &&
     reservation.status !== '예약 취소' &&
     reservation.status !== '이용 완료';
-  const sorted = [...reservations].sort((a, b) =>
-    b.date.localeCompare(a.date));
-  const upcoming = sorted.filter(isUpcoming);
-  const past = sorted.filter((r) => !isUpcoming(r));
-  const shown = tab === 'upcoming' 
-  ? upcoming : tab === 'past' 
-  ? past : sorted;
+  const upcoming = reservations
+    .filter(isUpcoming)
+    .sort((a, b) => a.date.localeCompare(b.date));
+  const past = reservations
+    .filter((r) => !isUpcoming(r))
+    .sort((a, b) => b.date.localeCompare(a.date));
+  const sorted = [...upcoming, ...past];
+  const shown = tab === 'upcoming'
+    ? upcoming : tab === 'past'
+      ? past : sorted;
 
   return (
     <div className="container page">
