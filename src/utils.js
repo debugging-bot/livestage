@@ -57,7 +57,7 @@ export function takenSlots(venueId, dateStr, reservations = []) {
     if (h % 7 === 0) taken.add('full');
     else if (h % 5 === 0) taken.add('night'); 
     reservations.forEach((r) => {
-        if (r.venueId === venueId && r.date === dateStr && r.status !== '취소')
+        if (r.venueId === venueId && r.date === dateStr && r.status !== '예약 취소')
             taken.add(r.slotId);
     });
     return taken;
